@@ -1,0 +1,54 @@
+<mat-toolbar class="mat-elevation-z15" fxFlex fxLayoutAlign="space-between" fxLayout="column">
+  Signal Messages Database
+  <span class="app-toolbar-filler"></span>
+  <button mat-raised-button (click)="create()">Add</button>
+</mat-toolbar>
+<div style="width: 100%;" class="app-content">
+  <mat-card>
+    <mat-card-content>
+      <form  class="raised-row">
+        <table>
+          <thead class="raised-row"><tr><th class="raised-row" colspan="4">Search</th></tr></thead>
+          <tr>
+            <td>
+              <mat-form-field style="width: 100%;">
+                <input matInput class="raised-row" style="width: 100%;" [(ngModel)]="searchText" (keyup.enter)="search($event)">
+                <!-- <input matInput class="raised-row" style="width: 100%;" [(ngModel)]="searchText" (keyup)="search($event)"> -->
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-content>
+      <form>
+        <table style="width: 100%;">
+          <thead style="layout-align: left">
+            <tr class="raised-row">
+              <th class="raised-row" style="width: 10%; layout-align: top;">Phone</th>
+              <th class="raised-row" style="width: 10%; layout-align: top;">Name</th>
+              <th class="raised-row" style="width: 10%; layout-align: top;">Date</th>
+              <th class="raised-row" style="width: 10%; layout-align: top;">Message</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let message of messages">
+              <td class="raised-row" style="width: 10%; vertical-align:top;">{{ message.address }}</td>
+              <td class="raised-row" style="width: 10%; vertical-align:top;">{{ message.contact_name }}</td>
+              <td class="raised-row" style="width: 20%; vertical-align:top;">{{ message.readable_date }}</td>
+              <td class="raised-row" style="width: 50%; vertical-align:top;">
+                <textarea matInput matTextareaAutosize readonly
+                          [ngModelOptions]="{standalone: true}"
+                          [ngModel]="message.body"
+                          class="raised-row"><!-- {{ message.body }} --></textarea>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

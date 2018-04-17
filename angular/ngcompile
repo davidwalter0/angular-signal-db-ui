@@ -1,0 +1,48 @@
+#!/bin/bash
+port=8080
+host=0.0.0.0
+proxy=""
+root=$(git rev-parse --show-toplevel)
+
+if [[ ! ${root:-} ]]; then
+    root=../
+fi
+
+echo ${root}/node_modules/@angular/cli/bin/ng ${@}
+for arg in ${@}; do
+    case ${arg} in
+        --edit=*) edit=${arg#--edit=};;
+        --port=*) port=${arg#--port=};;
+        --proxy=*) proxy="--proxy=${arg#--proxy=}";;
+        --host=*) host=${arg#--host=};;
+        --ssl)
+            tlsdir=${root}/tls;
+            ssl="--ssl 1 --ssl-cert ${tlsdir}/192.168.0.26.crt --ssl-key ${tlsdir}/192.168.0.26.key"
+            ;;
+        --*|*)
+            echo ngcompile [ --port=p# --host=h ]
+            exit 1;
+    esac
+done
+# root=$(git rev-parse --show-toplevel)
+
+# if [[ ! ${root:-} ]]; then
+#     root=../
+# fi
+
+if [[ ${edit:-} ]]; then
+    sed -i -e "s,example.com,${edit},g" ${root}/src/environments/environment.ts
+fi
+
+echo "ng (angular2) compile using root ${root} ${ssl}"
+# ../node_modules/@angular/cli/bin/ng serve --verbose --host=${host} --port=${port} 2>&1 |\
+echo "sudo ${root}/node_modules/@angular/cli/bin/ng serve --verbose --host=${host} --port=${port} ${proxy} ${ssl} 2>&1"
+
+sudo ${root}/node_modules/@angular/cli/bin/ng serve --verbose --host=${host} --port=${port} ${proxy} ${ssl} 2>&1 |\
+stdbuf -i0 -o0 -e0 grep -Ev '(building modules|\[emitted\])' |\
+stdbuf -i0 -o0 -e0 uncolor | \
+stdbuf -i0 -o0 -e0 tee ${root}/log 2>&1 | \
+stdbuf -i0 -o0 -e0 sed -r -e 's,^ERROR in /,/,g' -e 's@([a-z0-9A-Z/]+)[[:space:]]+\(([0-9]+),([0-9]+)\):(.*)@\1:\2:\3:\4@g'
+# sed -r "s/\x1B\[([0-9]{1,3}((;[0-9]{1,3})*)?)?[m|K]//g"
+# sed -r "s/\x1B\[([0-9]{1,3}((;[0-9]{1,3})*)?)?[m|K]//g"
+# echo ... | sed -r "s/./\x1B/g"

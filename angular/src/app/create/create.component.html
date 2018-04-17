@@ -1,0 +1,33 @@
+<mat-toolbar class="mat-elevation-z15" fxFlex fxLayoutAlign="space-between" fxLayout="column">
+  Signal Messages Database
+  <span class="app-toolbar-filler"></span>
+  <button mat-raised-button (click)="save()">Save</button>
+</mat-toolbar>
+<div class="app-content" >
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>New Message</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form>
+            <mat-form-field><input matInput type="phone"
+                                   placeholder="Address"  [(ngModel)]="message.address"  [ngModelOptions]="{standalone: true}" >  </mat-form-field><br>
+            <mat-form-field><input matInput type="text"
+                                   placeholder="Name"  [(ngModel)]="message.contact_name"  [ngModelOptions]="{standalone: true}" >  </mat-form-field><br>
+            {{ message.readable_date | date:'yyyy-MM-dd HH:mm a z':'+0000' }}
+            <br>
+            <mat-form-field style="width: 80%;" >
+              <textarea matInput placeholder="Message"
+                        [(ngModel)]="message.body"
+                        [ngModelOptions]="{standalone: true}"
+                        matTextareaAutosize
+                        matAutosizeMinRows=5
+                        matAutosizeMaxRows=10
+                        >
+              </textarea>
+            </mat-form-field>
+            <br>
+          </form>
+        </mat-card-content>
+    </mat-card>
+</div>

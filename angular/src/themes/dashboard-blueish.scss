@@ -1,0 +1,141 @@
+@import 'dashboard-blueish-theme';  //  <-- the theme file shown above
+
+//default light palette forground/background:
+$light-foreground-palette: map-get($theme, foreground);
+$light-background-palette: map-get($theme, background);
+
+//dark palette forground/background:
+$dark-foreground-palette: map-get($dark-t, foreground);
+$dark-background-palette: map-get($dark-t, background);
+
+.light-colors{
+    background-color : mat-color($primary, default);
+    color: mat-color($light-foreground-palette, text);
+}
+
+.dark-colors{
+    background-color : mat-color($dark-p, default);
+    color: mat-color($dark-foreground-palette, text);
+}
+
+$alt: #46B;
+$background: #455A84;
+$foreground: mat-color($dark-foreground-palette, text);
+
+mat-toolbar,
+.mat-toolbar,
+.mat-card,
+.mat-grid-list,
+.mat-grid-tile 
+.mat-list,
+.mat-sidenav,
+.mat-sidenav-container,
+.mat-sidenav-content,
+mat-card,
+mat-grid-list,
+mat-grid-tile,
+mat-list,
+mat-sidenav,
+mat-sidenav-container,
+mat-sidenav-content,
+{
+  background-color : $background;
+  color: mat-color($dark-foreground-palette, text);
+}
+
+button,
+.button,
+mat-button 
+.mat-button 
+{
+  box-shadow: 3px 1 3 $alt outset !important;
+  margin-left: 20px !important;
+  padding: 1px;
+  margin: 1px;
+}
+
+.mat-fab,
+mat-fab,
+.icon-b,
+icon-b,
+{
+    @include mat-elevation-transition;
+    @include mat-elevation(2);
+
+    &:active {
+        @include mat-elevation(8);
+    }
+    box-shadow: 1px 1 3 $alt outset !important;
+    background-color:   $alt;
+    color:              $background;
+    height:       40px !important;
+    width:        40px !important;
+    font-size:    20px !important;
+}
+
+
+
+body,
+.mat-raised-button,
+mat-raised-button,
+{
+    box-shadow: 1px 1 3 $alt outset !important;
+    border: 2px solid $alt;
+    margin: 2px;
+    padding: 2px;
+    margin-top: 5px;
+    background-color : $alt;
+    color: mat-color($dark-foreground-palette, text);
+}
+
+.raised-row,
+{
+    // padding-left: 10px;
+    box-shadow: 2px 1 3 $alt inset !important;
+    border-bottom: 2px solid $alt;
+    margin: 2px;
+    padding: 2px;
+    color: $foreground;
+}
+
+mat-toolbar,
+.mat-toolbar,
+.mat-drawer,
+.mat-sidenav,
+mat-drawer,
+mat-sidenav,
+{
+    box-shadow: 1px 1 3 $alt outset !important;
+    border: 2px solid $alt;
+    margin: 2px;
+    padding: 2px;
+}
+
+.mat-fab,
+mat-fab,
+fa,
+.fa,
+.mat-icon,
+mat-icon,
+mat-list-item,
+{
+    box-shadow: 1px 1 3 $alt outset !important;
+    margin-left: -25px;
+}
+
+.mat-card-body{
+    float: bottom -2px;
+}
+
+.mat-card {
+    box-shadow: 5px 1 3 $alt outset !important;
+    border: 2px solid $alt;
+}
+
+mat-sidenav.mat-drawer.mat-sidenav {
+    box-shadow: 1px 1 3 $alt outset !important;
+    border: 2px solid $alt;
+    margin: 2px;
+    padding: 2px;
+    margin-top: 15px;
+}
