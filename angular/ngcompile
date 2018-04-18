@@ -17,7 +17,7 @@ for arg in ${@}; do
         --host=*) host=${arg#--host=};;
         --ssl)
             tlsdir=${root}/tls;
-            ssl="--ssl 1 --ssl-cert ${tlsdir}/192.168.0.26.crt --ssl-key ${tlsdir}/192.168.0.26.key"
+            ssl="--ssl 1 --ssl-cert ${tlsdir}/example.domain.crt --ssl-key ${tlsdir}/example.domain.key"
             ;;
         --*|*)
             echo ngcompile [ --port=p# --host=h ]

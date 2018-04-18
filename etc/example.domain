@@ -1,0 +1,33 @@
+{
+  "key-ext": ".key",
+  "cert-ext": ".crt",
+  "path": "tls",
+  "ca-common": "example.domain",
+  "ca-filename": "tls/ca",
+  "ca-org": [
+    "example.domain"
+  ],
+  "ca-unit": [
+    "clusterops"
+  ],
+  "cert-file": "tls/example.domain",
+  "common": "example.domain",
+  "dnsnames": [
+    "example.domain"
+  ],
+  "ips": [
+    "example.domain",
+    "192.168.0.21",
+    "192.168.0.26",
+    "192.168.0.250",
+    "192.168.0.251",
+    "192.168.0.252",
+    "192.168.0.253"
+  ],
+  "org": [
+    "example.domain"
+  ],
+  "unit": [
+    "devops"
+  ]
+}

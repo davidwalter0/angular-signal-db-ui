@@ -1,0 +1,14 @@
+#!/bin/bash
+export TLS_DIR=tls
+
+export APP_HOST=example.domain
+export APP_CERT_NAME=example.com
+export APP_CERT_NAME=example.domain
+export APP_PORT=12345;
+export APP_CERT=${TLS_DIR}/${APP_CERT_NAME}.crt ;
+export APP_KEY=${TLS_DIR}/${APP_CERT_NAME}.key ; 
+export APP_USER=admin
+export APP_PASSWORD=password
+export APP_COUCHBASE_HOST=example.domain
+export APP_COUCHBASE_BUCKET=example
+export APP_FILENAME=download/SignalPlaintextBackup.xml
