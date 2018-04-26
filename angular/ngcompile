@@ -2,7 +2,7 @@
 port=8080
 host=0.0.0.0
 proxy=""
-root=$(git rev-parse --show-toplevel)
+root=$(git rev-parse --show-toplevel)/angular
 
 if [[ ! ${root:-} ]]; then
     root=../

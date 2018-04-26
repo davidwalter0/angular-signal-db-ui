@@ -22,7 +22,7 @@ go get github.com/satori/go.uuid
 git clone git@github.com:AdminId20/signal-db-ui
 cd signal-db-ui
 mkdir -p bin
-go build serve/serve.go -o bin/serve
+go build -tags netgo -ldflags '-w -s' -o bin/serve serve/serve.go
 ```
 
 Run a couchbase instance in docker or other
@@ -38,7 +38,7 @@ docker run --detach --net=host --privileged \
  
 ```
 go get github.com/AdminId20/certutil/cmd/certgen
-go build -o bin/certgen github.com/AdminId20/certutil/cmd/certgen
+go build -tags netgo -ldflags '-w -s' -o bin/certgen github.com/AdminId20/certutil/cmd/certgen
 bin/certgen --jsoncfg etc/example.domain
 ```
 

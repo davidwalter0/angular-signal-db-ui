@@ -1,9 +1,21 @@
 # Signal Angular Message
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.25.5.
+This project was heavily modified from an angular-cli 1.x and
+angular-2.x material-2.x to angular 1.7.x and @angular 5.2.x and
+material 5.2.x
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+However a modified helper script `angular/ngcompile` ignores/discards
+terminal uglifier/colorizer allowing execution for testing in an emacs
+terminal. Running from the angular directory like the following, but
+please read ../README.md
+
+```
+./ngcompile --port=8123 --host=example.domain --ssl
+```
+
 
 ## Code scaffolding
 
