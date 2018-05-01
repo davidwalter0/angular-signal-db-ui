@@ -1,0 +1,50 @@
+textarea,
+.textarea,
+.top,
+.tr,
+tr,
+table,
+thead,
+td,
+th  {
+    /* border-color:    red      !important; */
+    border-collapse: collapse !important;
+    /* border-spacing:  0px      !important; */
+    /* border:          2px red  !important; */
+    color:           #fff     !important;
+    margin:          0px      !important;
+    padding:         0px      !important;
+    vertical-align:  top      !important; 
+    text-align:      left     !important;
+
+}
+
+table {
+    width: 100%;
+    padding: 0 50px 0 50px;
+    vertical-align:  top      !important; 
+    text-align:      left     !important;
+}
+
+.table tr,
+.table tr td,
+.table *  td,
+.table tr th,
+.table *  th,
+tr,
+td {
+  /* border-color:     blue     inset !important; */
+  border-collapse:  collapse       !important;
+  border-spacing:   0px            !important;
+  width:            0px            !important;
+  height:           0px            !important;
+  /* width:           20px            !important; */
+  /* height:          20px            !important; */
+  /* border:          1px solid red   !important; */
+  /* text-align:      center          !important; */
+  vertical-align:  top             !important; 
+  text-align:      left            !important;
+  margin-top:      -5px            !important;
+  margin:           0px            !important;
+  padding:          0px            !important;
+}

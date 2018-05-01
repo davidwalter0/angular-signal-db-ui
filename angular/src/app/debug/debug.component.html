@@ -1,0 +1,112 @@
+<mat-card class="mat-elevation-z15">
+  <mat-card-content>
+    <h3>Debug
+      <br>
+      <br>
+      <div *ngIf="givenName">
+        Welcome, {{givenName}} authorized user.
+      </div>
+    </h3>
+    <br>
+    <h3 *ngIf="givenName">Authenticated User!</h3>
+    <h3 *ngIf="!givenName">Anonymous User!</h3>
+  </mat-card-content>
+</mat-card>
+<hr *ngIf="claims">
+<!-- <mat-card *ngIf="claims" style="min-width: 99%; width: 99%;" class="raised-row mat-elevation-z15" fxFlex fxLayoutAlign="space-between" fxLayout="column"> -->
+<mat-card *ngIf="claims" fxFlex fxLayoutAlign="space-between" fxLayout="column">
+  <mat-card-content>
+    <!-- <table class="top raised-row wrap"  -->
+    <table *ngIf="isSmallScreen">
+ <!-- style="max-width: 99%; width: 99%; text-align: left;"> -->
+      <thead>
+        <tr><th>Name</th><th>Value</th></tr>
+      </thead>
+      <!-- start loop over attributes -->
+      <tr *ngFor="let key of keys()">
+        <td>{{key}}</td>
+        <td>  <!-- class="wrap"> -->
+          <mat-form-field *ngIf="isIn(key, ['sub','nonce'])">
+            <textarea matInput matTextareaAutosize readonly>
+              {{ claims[key] }}
+            </textarea>
+          </mat-form-field>
+          <div *ngIf="!isIn(key, ['sub','nonce'])">
+            {{ claims[key] }}
+          </div>
+        </td>
+      </tr>
+      <!-- end of loop -->
+      <tr>
+        <td>id_token_expiration     </td>
+        <td class="wrap">
+          <mat-form-field>
+            <textarea matInput matTextareaAutosize readonly>
+              {{ id_token_expiration }}
+            </textarea>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>access_token            </td>
+        <td>
+          <mat-form-field>
+            <textarea matInput matTextareaAutosize readonly>
+              {{ access_token }}
+            </textarea>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>access_token_expiration </td>
+        <td>
+          <mat-form-field>
+            <textarea matInput matTextareaAutosize readonly>
+              {{access_token_expiration}}
+            </textarea>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <table *ngIf="!isSmallScreen" style="max-width: 99%; width: 99%; text-align: left;" class="raised-row wrap">
+      <thead>
+        <tr><th>Attribute</th><th>Value</th></tr>
+      </thead>
+      <tr *ngFor="let key of keys()" class="raised-row wrap" style="max-width: 99%; width: 99%; text-align: left;">
+        <td>{{key}}</td>
+        <td class="wrap">
+          {{ claims[key] }}
+        </td>
+      </tr>
+      <tr><td>id_token_expiration     </td><td>{{id_token_expiration}}</td></tr>
+      <tr><td>access_token            </td><td>{{access_token}}</td></tr>
+      <tr><td>access_token_expiration </td><td>{{access_token_expiration}}</td></tr>
+    </table>
+    <table style="max-width: 99%; width: 99%; text-align: left;"> <!-- class="raised-row wrap"> -->
+      <tr><td>id_token   </td></tr>
+      <tr style="max-width: 99%; width: 99%;"> <!-- class="raised-row wrap"> -->
+        <td>
+          <mat-form-field style="max-width: 99%; width: 99%;">
+            <textarea matInput matTextareaAutosize readonly>
+              {{id_token}}
+            </textarea>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          parsedToken
+        </td>
+      </tr>
+      <tr style="max-width: 99%; width: 99%;"> <!-- class="raised-row wrap"> -->
+        <td>
+          <mat-form-field style="max-width: 99%; width: 99%;">
+            <textarea matInput matTextareaAutosize readonly>
+              {{parsedToken}}
+            </textarea>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+  </mat-card-content>
+</mat-card>

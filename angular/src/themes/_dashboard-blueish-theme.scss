@@ -1,17 +1,12 @@
 @import '~@angular/material/_theming.scss';
 
 @include mat-core();
-// default theme:
-// $primary: mat-palette($mat-indigo,800);
-// $secondary: mat-palette($mat-pink,800);
 
 // $primary: mat-palette($mat-blue,800);
 $primary: mat-palette($mat-indigo,A400);
 $secondary: mat-palette($mat-brown,A400);
 $accent: mat-palette($mat-teal);
 $theme: mat-light-theme($primary, $secondary);
-
-// $theme: mat-light-theme($primary, $accent);
 
 @include angular-material-theme($theme);
 
@@ -21,8 +16,10 @@ $dark-p: mat-palette($mat-blue-grey, A400);
 $dark-a: mat-palette($mat-blue-grey,900);
 // $dark-t: mat-dark-theme($dark-p, $dark-a);
 $dark-t: mat-dark-theme($secondary, $primary);
+$dark-foreground-palette: map-get($dark-t, foreground);
+$dark-background-palette: map-get($dark-t, background);
 
-// .dark-theme {
-//   @include angular-material-theme($dark-t);
-// }
+$alt: #46B;
+$background: #455A84;
+$foreground: mat-color($dark-foreground-palette, text);
 

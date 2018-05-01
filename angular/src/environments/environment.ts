@@ -5,15 +5,4 @@
 
 export const environment = {
   production: false,
-  TESTING: true,
-  // required HTTP attribute, disable TLS by turning it off
-  HTTPS: true,
-  // if using tls/https, the hostname must match certs or you'll fight
-  // with browser cert acceptance
-  BACKEND_HOST: "192.168.0.26",
-  BACKEND_PORT: "12345",
-  ISSUER: "192.168.0.26"
 };
-
-
-

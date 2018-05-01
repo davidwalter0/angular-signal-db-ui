@@ -6,7 +6,7 @@ import { Http } from '@angular/http';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { PageEvent } from '@angular/material';
-import { environment } from '../../environments/environment';
+import { config } from '../config';
 import { FlexLayoutModule } from "@angular/flex-layout";
 
 @Component({
@@ -15,10 +15,9 @@ import { FlexLayoutModule } from "@angular/flex-layout";
   styleUrls: ['./messages.component.css']
 })
 export class MessagesComponent implements OnInit {
-  host: string = environment.BACKEND_HOST;
-  port: string = environment.BACKEND_PORT;
-  issuer: string = environment.ISSUER;
-  https: boolean = environment.HTTPS;
+  host: string = config.BACKEND_HOST;
+  port: string = config.BACKEND_PORT;
+  https: boolean = config.HTTPS;
   PROTOCOL: string = "https";
   base_url: string = `${this.PROTOCOL}://${this.host}:${this.port}`;
 
@@ -32,7 +31,10 @@ export class MessagesComponent implements OnInit {
   public contact_name: boolean = true;
   public address: boolean = true;
 
-  public constructor(private http: Http, private router: Router, private location: Location) {
+  public constructor(private http: Http,
+    private router: Router,
+    private location: Location,
+  ) {
     this.messages = [];
 
     this.postIt = {
@@ -80,20 +82,14 @@ export class MessagesComponent implements OnInit {
         "readable_date": `${this.postIt.readable_date}`,
         "body": `${this.postIt.body}`,
       };
-      console.log(JSON.stringify(this.postIt))
       this.http.post(url, JSON.stringify(this.postIt))
         .map(result => result.json())
         .subscribe(result => {
-          console.log(result);
           this.messages = result;
         });
     } else {
       this.reset()
       this.refresh();
     }
-  }
-
-  public create() {
-    this.router.navigate(["create"]);
   }
 }

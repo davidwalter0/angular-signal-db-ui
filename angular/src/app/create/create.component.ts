@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Http } from '@angular/http';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { environment } from '../../environments/environment';
+import { config } from '../config';
 
 @Component({
   selector: 'app-create',
@@ -11,10 +11,9 @@ import { environment } from '../../environments/environment';
 })
 
 export class CreateMessageComponent implements OnInit {
-  host: string = environment.BACKEND_HOST;
-  port: string = environment.BACKEND_PORT;
-  issuer: string = environment.ISSUER;
-  https: boolean = environment.HTTPS;
+  host: string = config.BACKEND_HOST;
+  port: string = config.BACKEND_PORT;
+  https: boolean = config.HTTPS;
   PROTOCOL: string = "https";
   base_url: string = `${this.PROTOCOL}://${this.host}:${this.port}`;
 
@@ -34,10 +33,8 @@ export class CreateMessageComponent implements OnInit {
 
   public save() {
     let url = `${this.base_url}/messages`;
-    console.log(url)
     if (this.message.address && this.message.contact_name && this.message.body) {
       this.message.readable_date = new Date().toUTCString();
-      console.log(JSON.stringify(this.message))
       this.http.post(url, JSON.stringify(this.message))
         .subscribe(result => {
           this.location.back();

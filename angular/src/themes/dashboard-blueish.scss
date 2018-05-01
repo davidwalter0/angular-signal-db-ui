@@ -18,9 +18,44 @@ $dark-background-palette: map-get($dark-t, background);
     color: mat-color($dark-foreground-palette, text);
 }
 
-$alt: #46B;
-$background: #455A84;
-$foreground: mat-color($dark-foreground-palette, text);
+wrap
+{
+    display: -webkit-flex !important; /* Safari */
+    -webkit-flex-wrap: wrap !important; /* Safari 6.1+ */
+    display: flex !important;   
+    flex-wrap: wrap !important;
+    text-align: left !important;
+}
+
+table,
+th,
+tr,
+td,
+{
+    box-shadow: 3px 1 3 $alt outset !important;
+    background-color : $background !important;
+    color: mat-color($dark-foreground-palette, text) !important;
+}
+
+a,
+{
+    color: mat-color($dark-foreground-palette, text) !important;
+    text-decoration: none !important;
+}
+
+toolbar-icon,
+{
+    padding: 0 14px;
+    background-color : $background !important;
+    color: mat-color($dark-foreground-palette, text) !important;
+}
+
+.toolbar-spacer,
+{
+    flex: 1 1 auto;
+    background-color : $background !important;
+    color: mat-color($dark-foreground-palette, text) !important;
+}
 
 mat-toolbar,
 .mat-toolbar,
@@ -38,9 +73,13 @@ mat-list,
 mat-sidenav,
 mat-sidenav-container,
 mat-sidenav-content,
+table,
+th,
+tr,
+td,
 {
-  background-color : $background;
-  color: mat-color($dark-foreground-palette, text);
+  background-color : $background !important;
+  color: mat-color($dark-foreground-palette, text) !important;
 }
 
 button,
@@ -49,7 +88,6 @@ mat-button
 .mat-button 
 {
   box-shadow: 3px 1 3 $alt outset !important;
-  margin-left: 20px !important;
   padding: 1px;
   margin: 1px;
 }
@@ -76,26 +114,24 @@ icon-b,
 
 
 body,
-.mat-raised-button,
-mat-raised-button,
 {
     box-shadow: 1px 1 3 $alt outset !important;
-    border: 2px solid $alt;
+    border: 2px solid $alt !important;
     margin: 2px;
     padding: 2px;
-    margin-top: 5px;
     background-color : $alt;
     color: mat-color($dark-foreground-palette, text);
 }
 
-.raised-row,
+.mat-raised-button,
+mat-raised-button,
 {
-    // padding-left: 10px;
-    box-shadow: 2px 1 3 $alt inset !important;
-    border-bottom: 2px solid $alt;
+    box-shadow: 1px 1 3 $alt outset !important;
+    border: 2px solid $alt !important;
     margin: 2px;
     padding: 2px;
-    color: $foreground;
+    background-color : $alt;
+    color: mat-color($dark-foreground-palette, text);
 }
 
 mat-toolbar,
@@ -106,7 +142,7 @@ mat-drawer,
 mat-sidenav,
 {
     box-shadow: 1px 1 3 $alt outset !important;
-    border: 2px solid $alt;
+    border: 2px solid $alt !important;
     margin: 2px;
     padding: 2px;
 }
@@ -120,7 +156,7 @@ mat-icon,
 mat-list-item,
 {
     box-shadow: 1px 1 3 $alt outset !important;
-    margin-left: -25px;
+    margin-left: -22px;
 }
 
 .mat-card-body{
@@ -128,14 +164,48 @@ mat-list-item,
 }
 
 .mat-card {
-    box-shadow: 5px 1 3 $alt outset !important;
-    border: 2px solid $alt;
+    box-shadow: 2px 1 3 $alt outset !important;
+    border: 2px solid $alt !important;
 }
 
 mat-sidenav.mat-drawer.mat-sidenav {
     box-shadow: 1px 1 3 $alt outset !important;
-    border: 2px solid $alt;
+    border: 2px solid $alt !important;
     margin: 2px;
     padding: 2px;
-    margin-top: 15px;
+}
+
+td,
+.raised-row,
+{
+    box-shadow: 1px 1 3 $alt outset !important;
+    margin: 2px !important;
+    padding: 2px !important;
+    color: $foreground !important;
+}
+
+.circle,
+.round {
+  border-radius: 75%;
+  /* border-radius: 10px; */
+
+  /* Prevent background color leak outs */
+  -webkit-background-clip: padding-box; 
+  -moz-background-clip:    padding; 
+  background-clip:         padding-box;
+  min-width:  35px;
+  min-height: 35px;
+  margin-bottom: 2px;
+}
+
+.rounded {
+  border-radius: 10px;
+
+  /* Prevent background color leak outs */
+  -webkit-background-clip: padding-box; 
+  -moz-background-clip:    padding; 
+  background-clip:         padding-box;
+  min-width:  35px;
+  min-height: 35px;
+  margin-bottom: 2px;
 }

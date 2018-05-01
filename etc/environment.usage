@@ -1,0 +1,45 @@
+#!/bin/bash
+
+function usage 
+{
+    cat <<EOF
+
+Change the DOMAIN variable
+Change the GO_SERVICE_PORT
+Change the ANGULAR_UI_PORT
+Change the ADMIN_PASSWORD
+Create or get the GOOGLE credentials from 
+Change GOOGLE_CLIENT_ID
+Change GOOGLE_CLIENT_SECRET
+Change passwords
+Change example.domain and cert location
+Check and change the cert extensions as needed (.crt and .key) ...
+Change the SignalPlaintextBackup.xml (redownload or copy ...)
+Change the couchbase options
+
+For example: configure:
+export DOMAIN=example.com
+export GO_SERVICE_PORT=12345
+export ANGULAR_UI_PORT=8888
+export ADMIN_PASSWORD=password
+export GOOGLE_CLIENT_ID=....apps.googleusercontent.com
+export GOOGLE_CLIENT_SECRET=..secret..
+
+export ADMIN_UID_1=admin1@${DOMAIN}
+export ADMIN_UID_2=admin2@${DOMAIN}
+export ADMIN_UID_3=admin3@${DOMAIN}
+export ADMIN_UID_4=administrator4@${DOMAIN}
+export ADMIN_UID_5=administrator5@example.com
+
+export APP_COUCHBASE_PASSWORD=password
+export APP_COUCHBASE_USER=admin
+export APP_COUCHBASE_HOST=${DOMAIN}
+export APP_COUCHBASE_BUCKET=example
+export APP_FILENAME=download/SignalPlaintextBackup.xml
+
+export DEX_CLIENT_ID="${DOMAIN//./-}-auth"
+export ISSUER_URI_PORT="5556"
+export ISSUER_URI="https://${DOMAIN}:${ISSUER_URI_PORT}"
+
+EOF
+}

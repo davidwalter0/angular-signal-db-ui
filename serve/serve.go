@@ -47,16 +47,16 @@ var app App
 
 // App application configuration struct
 type App struct {
-	Cert            string
-	Key             string
-	Path            string
-	User            string
-	Password        string
-	Host            string
-	Port            string
-	CouchbaseHost   string
-	CouchbaseBucket string
-	Filename        string
+	Cert              string
+	Key               string
+	Path              string
+	Host              string
+	Port              string
+	CouchbaseHost     string
+	CouchbaseBucket   string
+	CouchbasePassword string
+	CouchbaseUser     string
+	Filename          string
 }
 
 // Build version build string
@@ -343,8 +343,8 @@ func main() {
 	cluster, _ = gocb.Connect(CouchbaseURI)
 
 	cluster.Authenticate(gocb.PasswordAuthenticator{
-		Username: app.User,
-		Password: app.Password,
+		Username: app.CouchbaseUser,
+		Password: app.CouchbasePassword,
 	})
 
 	bucketName = app.CouchbaseBucket

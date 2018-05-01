@@ -11,6 +11,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonToggleModule } from '@angular/material';
+import { MatSnackBarModule } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { MatButtonToggleModule } from '@angular/material';
     MatCardModule,
     MatCheckboxModule,
     MatDatepickerModule,
+    MatSnackBarModule,
   ],
   exports: [
     MatButtonToggleModule,
@@ -36,6 +38,7 @@ import { MatButtonToggleModule } from '@angular/material';
     MatCardModule,
     MatCheckboxModule,
     MatDatepickerModule,
+    MatSnackBarModule,
   ],
 })
 export class MaterialModule { }

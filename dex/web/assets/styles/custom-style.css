@@ -1,0 +1,12 @@
+button.dex-btn.theme-btn-provider,
+{
+  display: block !important;
+  border-radius: 4px !important;
+  background-color : #455A84 !important;
+  border: 5px !important;
+  box-shadow: 5px 1 3 #fff outset !important;
+
+  cursor: pointer;
+  font-size: 24px;
+  padding: 10px !important;
+}

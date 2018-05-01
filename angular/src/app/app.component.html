@@ -1,1 +1,152 @@
+<hr>
+<style>
+
+</style>
+
+<a mat-fab
+   color="primary"
+   *ngIf="debug_mode && isAdmin && !path('/debug')"
+   class="left-over debug"
+   (click)="push('/debug')">
+  <mat-icon>
+    bug_report
+  </mat-icon>
+</a>
+<a mat-fab
+   color="primary"
+   *ngIf="debug_mode && isAdmin && path('/debug')"
+   class="left-over debug"
+   (click)="pop()">
+  <mat-icon>
+    cancel
+  </mat-icon>
+</a>
+
+<a mat-fab 
+   color="primary" 
+   *ngIf="!path('/public')" 
+   class="left-over public" 
+   (click)="push('/public')">
+  <mat-icon>
+    public
+  </mat-icon>
+</a>
+<a mat-fab 
+   color="primary" 
+   *ngIf=" path('/public')" 
+   class="left-over public" 
+   (click)="pop()">
+  <mat-icon>
+    cancel
+  </mat-icon>
+</a>
+
+<a mat-fab 
+   color="primary" 
+   *ngIf="!path('/loggedin')" 
+   class="left-over loggedin" 
+   (click)="validate_push('/loggedin')">
+  <mat-icon>
+    perm_identity
+  </mat-icon>
+</a>
+<a mat-fab 
+   color="primary" 
+   *ngIf="path('/loggedin')" 
+   class="left-over loggedin" 
+   (click)="validate_pop()">
+  <mat-icon>
+    cancel
+  </mat-icon>
+</a>
+
+<a mat-fab 
+   color="primary" 
+   *ngIf="isAdmin && !path('/create')" 
+   class="right-over create" 
+   (click)="push('/create')">
+  <mat-icon>
+    input
+  </mat-icon>
+</a>
+<a mat-fab 
+   color="primary" 
+   *ngIf="isAdmin &&  path('/create')" 
+   class="right-over create" 
+   (click)="pop()">
+  <mat-icon>
+    cancel
+  </mat-icon>
+</a>
+<a mat-fab 
+   color="primary" 
+   *ngIf="! loggedin"                    
+   class="right-over unlock" 
+   (click)="login()">
+  <mat-icon>
+    lock_open
+  </mat-icon>
+</a>
+<a mat-fab 
+   color="primary" 
+   *ngIf=" loggedin"                    
+   class="right-over unlock" 
+   (click)="logout()">
+  <mat-icon>
+    lock
+  </mat-icon>
+</a>
+
+<mat-toolbar mat-elevation-z15 class="mat-elevation-z15">
+  <mat-toolbar-row>
+    <span>
+      <button mat-fab color="primary" mat-raised-button routerLink="/home">
+        <mat-icon style="z-index: 5; top: 5px; left: -5px">home</mat-icon>
+      </button>
+    </span>
+    <span class="toolbar-spacer"></span>
+    <span *ngIf="givenName" style="padding-left: 2px; padding-right: 3px; font-size: 16px;">Logged in as: {{givenName}} </span>
+    <span *ngIf="isAdmin" style="padding-left: 2px;">
+      <button mat-fab color="primary" mat-raised-button routerLink="/messages">
+        <mat-icon style="z-index: 5; top: 8px; left: -7px">message</mat-icon>
+      </button>
+    </span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<style>
+</style>
+<hr>
 <router-outlet style="width: 90%; margin-left: 10px;"></router-outlet>
+<hr>
+<mat-card *ngIf="debug" class="mat-elevation-z15">
+  <mat-card-content>
+    <br>
+    config: <pre><code>{{ cfg }}</code></pre>
+    <br>
+    <table>
+      <thead >
+        <tr>
+          <th>Admin Email</th><th>Name</th><th>Groups</th>
+        </tr>
+      </thead>
+
+      <tr *ngFor="let key of Keys()">
+        <td >{{ key }}</td>
+        <td >{{ v(key).Name }}</td>
+        <td *ngIf="!isSmallScreen">{{ v(key).Groups }}</td>
+        <td *ngIf="isSmallScreen">
+          <table style="vertical-align: text-bottom">
+            <tr *ngFor="let group of v(key).Groups">
+              <td >{{ group }}</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+    </table>
+    <br>
+    origin: <pre><code>{{ origin }}</code></pre>
+    <br>
+    location: <pre><code>{{ location }}</code></pre>
+  </mat-card-content>
+</mat-card>

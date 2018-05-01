@@ -1,0 +1,21 @@
+CONFIG_FILENAME=angular/src/app/config.ts.${PROJECT_EXT}
+
+if [[ ! -e ${CONFIG_FILENAME} ]]; then
+    cat > ${CONFIG_FILENAME} <<EOF
+export const config = {
+  clientid: '${DEX_CLIENT_ID}',
+  issuer: '${ISSUER_URI}',
+  DEBUG: true,
+  TESTING: true,
+  // required HTTP attribute, disable TLS by turning it off
+  HTTPS: true,
+  /*
+    if using tls/https, the hostname must match certs or you'll fight
+    with browser cert acceptance
+  */
+  BACKEND_HOST: '${DOMAIN}',
+  BACKEND_PORT: '${GO_SERVICE_PORT}',
+};
+EOF
+
+fi

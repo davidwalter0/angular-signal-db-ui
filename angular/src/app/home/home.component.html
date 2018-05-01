@@ -1,0 +1,14 @@
+<mat-card class="mat-elevation-z15">
+  <mat-card-content>
+    <h3>Home
+      <br>
+      <br>
+      <div *ngIf="givenName">
+        Welcome, {{givenName}} authorized user.
+      </div>
+    </h3>
+    <br>
+    <h3 *ngIf="givenName">Authenticated User!</h3>
+    <h3 *ngIf="!givenName">Anonymous User!</h3>
+  </mat-card-content>
+</mat-card>

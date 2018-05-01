@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if [[ ! ${DOMAIN:-} || ! ${GO_SERVICE_PORT:-} || ! ${ANGULAR_UI_PORT:-} || ! ${ADMIN_PASSWORD:-} || ! ${GOOGLE_CLIENT_ID:-} || ! ${GOOGLE_CLIENT_SECRET:-} ]]; then
+   echo Not configured. Please verify your environment configuration in:
+   # for usage output that follows
+   . etc/environment.error
+   export DOMAIN=example.com
+   usage
+   exit 1
+fi
+if [[ ! ${APP_HOST:-} || ! ${APP_CERT_NAME:-} || ! ${APP_PORT:-} || ! ${APP_KEY:-} || ! ${APP_CERT:-} || ! ${APP_KEY:-} ]]; then
+   echo Not configured. Please verify your environment configuration in:
+   # for usage output that follows
+   . etc/environment.error
+   export DOMAIN=example.com
+   usage
+   exit 1
+fi
+
+
+if [[ ! "${AdminPasswordHash:-}" ]]; then
+    AdminPasswordHash=$(go run dex/mkpasswd.go -password=${ADMIN_PASSWORD})
+fi
+export AdminPasswordHash=${AdminPasswordHash}
+

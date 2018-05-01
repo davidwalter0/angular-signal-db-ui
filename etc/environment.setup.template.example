@@ -1,0 +1,31 @@
+#!/bin/bash
+
+export DOMAIN=example.com
+export GO_SERVICE_PORT=12345
+export ANGULAR_UI_PORT=8888
+export ADMIN_PASSWORD=..password..
+export GOOGLE_CLIENT_ID=...client-id....apps.googleusercontent.com
+export GOOGLE_CLIENT_SECRET=..secret..
+
+export ADMIN_UID_1=admin1@${DOMAIN}
+export ADMIN_UID_2=admin2@${DOMAIN}
+export ADMIN_UID_3=admin3@${DOMAIN}
+export ADMIN_UID_4=administrator@${DOMAIN}
+export ADMIN_UID_5=administrator@another.com
+
+export APP_COUCHBASE_PASSWORD=password
+export APP_COUCHBASE_USER=admin
+export APP_COUCHBASE_HOST=${DOMAIN}
+export APP_COUCHBASE_BUCKET=example
+export APP_FILENAME=download/SignalPlaintextBackup.xml
+
+export DEX_CLIENT_ID="${DOMAIN//./-}-auth"
+export ISSUER_URI_PORT="5556"
+export ISSUER_URI="https://${DOMAIN}:${ISSUER_URI_PORT}"
+
+export APP_HOST=${DOMAIN}
+export TLS_DIR=/etc/certs/${APP_HOST}
+export APP_CERT_NAME=${DOMAIN}
+export APP_PORT=${GO_SERVICE_PORT};
+export APP_CERT=${TLS_DIR}/${APP_CERT_NAME}.crt ;
+export APP_KEY=${TLS_DIR}/${APP_CERT_NAME}.key ;

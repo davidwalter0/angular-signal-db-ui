@@ -1,0 +1,461 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #46B !important;
+  box-shadow: 3px 3px 3px 3px #455A84 !important;
+  border: 5px solid #46B !important;
+  margin: 3px;
+  padding: 3px;
+  margin-top: 5px;
+  background-color : #46B;
+}
+
+.dex-container {
+  color: #fff  !important;
+  /* margin: 45px auto; */
+  margin:    5px auto !important;
+  max-width: 375px  !important;
+  min-width: 300px  !important;
+  text-align: center  !important;
+  box-shadow: 5px 5px 5px 5px #468 !important;
+}
+
+
+/* .dex-btn, */
+/* .dex-btn:focus, */
+/* .dex-btn:hover, */
+/* .dex-btn:active, */
+/* { */
+/*   border-radius: 4px !important; */
+/*   box-shadow: 3px 3px 3px 3px #455A84 !important; */
+/*   border: 5px solid #46B !important; */
+/*   padding: 3px; */
+/*   min-width: 325px; */
+/*   width: 325px; */
+/*   color: #fff !important; */
+/*   font-size: 18px !important; */
+/*   cursor: pointer !important; */
+/* } */
+
+.dex-btn-icon {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 24px;
+  border-radius: 4px 0 0 4px;
+  float: left;
+  height: 36px;
+  margin-right: 5px;
+  width: 36px;
+}
+
+.dex-btn-icon--google {
+  background-color: #455A84;
+  background-image: url(../static/img/google-icon.svg);;
+}
+
+.dex-btn-icon--local {
+  background-color: #455A84;
+  background-image: url(../static/img/email-icon.svg);
+}
+
+.dex-btn-icon--coreos {
+  /* B&W CoreOS SVG logo */
+  /* background-image: url(../static/img/coreos-icon.svg); */
+  background-image: url(../theme/favicon.png);
+}
+
+.dex-btn-icon--github {
+  background-color: #455A84;
+  background-image: url(../static/img/github-icon.svg);
+}
+
+.dex-btn-icon--gitlab {
+  background-image: url(../static/img/gitlab-icon.svg);
+  background-size: contain;
+}
+
+.dex-btn-icon--bitbucket {
+  background-color: #455A84;
+  background-image: url(../static/img/bitbucket-icon.svg);
+}
+
+.dex-btn-icon--ldap, .dex-btn-icon--tectonic-ldap {
+  background-color: #455A84;
+  background-image: url(../static/img/ldap-icon.svg);
+}
+
+.dex-btn-icon--saml {
+  background-color: #455A84;
+  background-image: url(../static/img/saml-icon.svg);
+}
+
+.dex-btn-icon--linkedin {
+  background-image: url(../static/img/linkedin-icon.svg);
+  background-size: contain;
+}
+
+.dex-btn-icon--microsoft {
+  background-image: url(../static/img/microsoft-icon.svg);
+}
+
+.dex-btn-text {
+  font-weight:     600  !important;
+  line-height:     36px !important;
+  /* padding:    6px  12px !important; */
+  text-align:      center !important;
+}
+
+* .dex-subtle-text,
+.dex-subtle-text {
+  text-align:  center !important;
+  color: #fff !important;
+  font-size: 16px;
+  margin-top: 5px;
+  min-height: 20px;
+  padding-top: 15px;
+  /* margin-left: 5em; */
+}
+
+.theme-link-back {
+  margin-top: 25px;
+}
+
+.dex-separator {
+  color: #999;
+}
+
+ul {
+  list-style-type: none !important;
+  text-align:      left !important;
+  margin: 0;
+  padding: 0;
+  margin-left: -3em;
+  margin-top: 5px;
+}
+
+.dex-list {
+  color: #fff;
+  display: inline-block;
+  /* display: block; */
+  font-size: 14px;
+  list-style: circle;
+  text-align: left;
+}
+
+.dex-error-box {
+  background-color: #455A84;
+  color: #fff;
+  font-size: 14px;
+  font-weight: normal;
+  max-width: 320px;
+  padding: 4px 0;
+}
+
+.dex-error-box {
+  margin: 20px auto;
+}
+
+
+.theme-body {
+  background-color: #455A84;
+  box-shadow: 3px 3px 3px 3px #455A84 !important;
+  color: #fff;
+  font-family: 'Source Sans Pro', Helvetica, sans-serif;
+}
+
+/* .theme-navbar { */
+/*   background-color: #46B; */
+/*   box-shadow: 5px 5px 5px 5px #fff !important; */
+/*   color: #fff; */
+/*   font-size: 13px; */
+/*   font-weight: 100; */
+/*   height: 46px; */
+/*   overflow: hidden; */
+/*   padding: 30px; */
+/* } */
+
+
+/* .theme-navbar { */
+/*   background-color: #455A84; */
+/*   box-shadow: 5px 5px 5px 5px #468 !important; */
+/*   color: #fff; */
+/*   font-size: 13px; */
+/*   font-weight: 100; */
+/*   height: 46px; */
+/*   overflow: hidden; */
+/*   padding: 30px; */
+/* } */
+
+.theme-navbar {
+  background-color: #455A84 !important;
+  box-shadow: 3px 3px 3px 3px #DDD !important;
+  padding:    1px !important;
+  margin:     1px !important;
+  min-width:   370px !important;
+  min-height:   50px !important;
+}
+
+
+.theme-navbar__logo-wrap {
+  display: inline-block;
+  height: 100%;
+  overflow: hidden;
+  padding: 10px 15px;
+  /* width: 300px; */
+  /* box-shadow: 3px 3px 3px 3px #455A84 !important; */
+  /* box-shadow: 3px 3px 3px 3px #677CA6 !important; */
+}
+
+.theme-navbar__logo {
+  height: 100%;
+  max-height: 25px;
+}
+
+.theme-heading {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  margin-top: 0;
+  box-shadow: 3px 3px 3px 3px #455A84 !important;
+}
+
+.theme-panel {
+  background-color: #455A84;
+  box-shadow: 3px 3px 3px 3px #455A84 !important;
+  padding:    5px;
+  box-shadow: 3px 3px 3px 3px #455A84 !important;
+}
+
+/*
+.theme-btn-provider {
+  background-color: #fff;
+  color: #455A84;
+  min-width: 325px !important;
+  background-color: #46B !important;
+  box-shadow: 3px 3px 3px 3px #455A84 !important;
+  border: 5px solid #46B !important;
+}
+
+.theme-btn-provider:hover {
+  color: #fff;
+  min-width: 325px !important;
+  background-color: #46B !important;
+  box-shadow: 3px 3px 3px 3px #455A84 !important;
+  cursor: pointer !important;
+}
+
+.theme-btn--primary {
+  padding: 6px 12px;
+  color: #fff;
+  background-color: #455A84;
+  box-shadow: 3px 3px 3px 3px #455A84 !important;
+  min-width: 325px !important;
+  cursor: pointer !important;
+}
+
+
+.theme-btn--primary:hover {
+  background-color: #455A84;
+  box-shadow: 3px 3px 3px 3px #455A84 !important;
+  min-width: 325px !important;
+  cursor: pointer !important;
+}
+*/
+
+/*
+
+.theme-form-input {
+  border-radius: 4px;
+  border: 1px solid #CCC;
+  box-shadow: 3px 3px 3px 3px #455A84 !important;
+  color: #666;
+  display: block;
+  font-size: 14px;
+  height: 36px;
+  line-height: 1.42857143;
+  margin: auto;
+  padding: 6px 12px;
+  min-width: 325px;
+}
+
+
+.theme-form-input:focus,
+.theme-form-input:active {
+  border-color: #66AFE9;
+  box-shadow: 3px 3px 3px 3px #455A84 !important;
+  outline: none;
+}
+
+.theme-form-label {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 4px auto;
+  position: relative;
+  text-align: left;
+  min-width: 325px;
+}
+
+*/
+
+/* .dex-btn, */
+/* .dex-btn:focus, */
+/* .dex-btn:hover, */
+/* .dex-btn:active, */
+/* .dex-btn--success, */
+/* { */
+/*   display: block !important; */
+/*   border-radius: 4px !important; */
+/*   box-shadow: 3px 3px 3px 3px #455A84 !important; */
+/*   cursor: pointer !important; */
+/*   border: 5px solid #46B !important; */
+/*   padding: 3px !important; */
+/*   min-width: 325px !important; */
+/*   width: 325px !important; */
+/*   color: #fff !important; */
+/*   font-size: 18px !important; */
+/* } */
+
+/*
+button,
+.dex-btn.theme-btn-provider,
+button.dex-btn.theme-btn-provider,
+.dex-btn.theme-btn--success,
+button.dex-btn.theme-btn--success,
+button,
+button:hover,
+button:active,
+button:focus,
+button:visited,
+{
+  display: block !important;
+  margin: 20px auto !important;
+  border: 5px solid #46B !important;
+  background-color: #46B !important;
+  text-decoration: none !important;
+  min-width: 325px !important;
+  width: 325px !important;
+  color: #fff !important;
+  box-shadow: 5px 5px 5px 5px #468 !important;
+  cursor: pointer !important;
+}
+*/
+
+* a,
+a *,
+a:hover,
+a:visited,
+a:active,
+a:focus,
+{
+  text-decoration: none !important;
+  background-color: #46B !important;
+  box-shadow: 3px 3px 3px 3px #455A84 !important;
+  box-shadow: 1px 1px 1px 1px #fff !important;
+  min-width: 325px !important;
+  color: #fff !important;
+}
+
+button#submit-login.dex-btn.theme-btn--primary,
+.theme-btn-provider,
+.theme-btn-provider:hover,
+.theme-btn--primary,
+.theme-btn--primary:hover,
+.theme-btn--success,
+.theme-btn--success:hover,
+button.theme-btn-provider,
+button.theme-btn-provider:hover,
+button.theme-btn--primary,
+button.theme-btn--primary:hover,
+button.theme-btn--success,
+button.theme-btn--success:hover,
+.dex-btn.theme-btn-provider,
+.dex-btn.theme-btn-provider:hover,
+.dex-btn.theme-btn--primary,
+.dex-btn.theme-btn--primary:hover,
+.dex-btn.theme-btn--success,
+.dex-btn.theme-btn--success:hover,
+button.dex-btn.theme-btn-provider,
+button.dex-btn.theme-btn-provider:hover,
+button.dex-btn.theme-btn--primary,
+button.dex-btn.theme-btn--primary:hover,
+button.dex-btn.theme-btn--success,
+button.dex-btn.theme-btn--success:hover {
+  background-color: #46B !important;
+  box-shadow: 1px 1px 1px 1px #fff !important;
+  min-width: 325px !important;
+  min-height: 50px !important;
+  width: 325px !important;
+  color: #fff !important;
+  cursor: pointer !important;
+}
+
+/*
+.theme-btn--success:hover {
+  background-color: #455A84;
+  box-shadow: 3px 3px 3px 3px #455A84 !important;
+  min-width: 325px !important;
+  width: 325px !important;
+  color: #fff !important;
+  cursor: pointer !important;
+}
+
+.theme-btn-provider,
+.theme-btn-provider:hover,
+.theme-btn--primary,
+.theme-btn--primary:hover,
+.theme-btn--success,
+.theme-btn--success:hover,
+button.theme-btn-provider,
+button.theme-btn-provider:hover,
+button.theme-btn--primary,
+button.theme-btn--primary:hover,
+button.theme-btn--success,
+button.theme-btn--success:hover
+{
+  background-color: #46B !important;
+  box-shadow: 1px 1px 1px 1px #46B !important;
+  min-width: 325px !important;
+  width: 325px !important;
+  color: #fff !important;
+  cursor: pointer !important;
+}
+*/
+
+
+button#submit-login.dex-btn.theme-btn--primary:hover,
+.theme-btn-provider:hover,
+.theme-btn--primary:hover,
+.theme-btn--success:hover,
+button.theme-btn-provider:hover,
+button.theme-btn--primary:hover,
+button.theme-btn--success:hover,
+.dex-btn.theme-btn-provider:hover,
+.dex-btn.theme-btn--primary:hover,
+.dex-btn.theme-btn--success:hover,
+button.dex-btn.theme-btn-provider:hover,
+button.dex-btn.theme-btn--primary:hover,
+button.dex-btn.theme-btn--success:hover {
+  background-color: #46B !important;
+  box-shadow: 1px 1px 1px 1px #46B inset !important;
+  min-width: 325px !important;
+  min-height: 50px !important;
+  width: 325px !important;
+  color: #fff !important;
+  cursor: pointer !important;
+}
+
+.circle,
+.round {
+  border-radius: 75%;
+  /* border-radius: 10px; */
+
+  /* Prevent background color leak outs */
+  -webkit-background-clip: padding-box; 
+  -moz-background-clip:    padding; 
+  background-clip:         padding-box;
+  min-width:  35px;
+  min-height: 35px;
+  margin-bottom: 2px;
+}

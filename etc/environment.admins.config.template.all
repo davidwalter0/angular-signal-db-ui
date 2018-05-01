@@ -1,0 +1,35 @@
+ADMIN_CONFIG_FILENAME=angular/src/app/admin.auth.config.ts.${PROJECT_EXT}
+
+if [[ ! -e ${ADMIN_CONFIG_FILENAME} ]]; then
+    cat > ${ADMIN_CONFIG_FILENAME} <<EOF
+export class User {
+  Email: string;
+  Name: string;
+  Groups: string[];
+}
+
+var groups: string[] = ["admin", "administrator", "user", "devops"];
+
+export class Administration {
+  Users: Array<User> = [
+    { Email: "${ADMIN_UID_1}", Name: "${ADMIN_UID_1%@*}", Groups: groups },
+    { Email: "${ADMIN_UID_2}", Name: "${ADMIN_UID_2%@*}", Groups: groups },
+    { Email: "${ADMIN_UID_3}", Name: "${ADMIN_UID_3%@*}", Groups: groups },
+    { Email: "${ADMIN_UID_4}", Name: "${ADMIN_UID_4%@*}", Groups: groups },
+    { Email: "${ADMIN_UID_5}", Name: "${ADMIN_UID_5%@*}", Groups: groups },
+  ];
+
+  Admins: Map<string, User>;
+
+  constructor() {
+    let map = new Map(); // new Map<string, User>();
+    for (let user of this.Users) {
+      let e = user.Email;
+      map.set(user.Email, user);
+    }
+    this.Admins = map;
+  }
+}
+EOF
+
+fi

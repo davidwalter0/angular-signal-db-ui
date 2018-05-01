@@ -16,29 +16,29 @@ for arg in ${@}; do
         --proxy=*) proxy="--proxy=${arg#--proxy=}";;
         --host=*) host=${arg#--host=};;
         --ssl)
-            tlsdir=${root}/tls;
-            ssl="--ssl 1 --ssl-cert ${tlsdir}/example.domain.crt --ssl-key ${tlsdir}/example.domain.key"
+            echo Defining ssl
+            ssl=1
             ;;
         --*|*)
             echo ngcompile [ --port=p# --host=h ]
             exit 1;
     esac
 done
-# root=$(git rev-parse --show-toplevel)
-
-# if [[ ! ${root:-} ]]; then
-#     root=../
-# fi
-
-if [[ ${edit:-} ]]; then
-    sed -i -e "s,example.com,${edit},g" ${root}/src/environments/environment.ts
+if [[ ${ssl:-} ]]; then
+    ssl="--ssl 1 --ssl-cert /etc/certs/${host}/server.crt --ssl-key /etc/certs/${host}/server.key"
 fi
 
-echo "ng (angular2) compile using root ${root} ${ssl}"
-# ../node_modules/@angular/cli/bin/ng serve --verbose --host=${host} --port=${port} 2>&1 |\
-echo "sudo ${root}/node_modules/@angular/cli/bin/ng serve --verbose --host=${host} --port=${port} ${proxy} ${ssl} 2>&1"
+# if [[ ${edit:-} ]]; then
+#     sed -e "s,example-com,${edit//./-},g" \
+#         -e "s,example.com,${edit},g" \
+#         < ${root}/src/app/config.example.ts \
+#         > ${root}/src/app/config.ts
+# fi
 
-sudo ${root}/node_modules/@angular/cli/bin/ng serve --verbose --host=${host} --port=${port} ${proxy} ${ssl} 2>&1 |\
+echo "ng (angular2) compile using root ${root} ${ssl}"
+echo "${root}/node_modules/@angular/cli/bin/ng serve --verbose --host=${host} --port=${port} ${proxy} ${ssl} 2>&1"
+
+${root}/node_modules/@angular/cli/bin/ng serve --verbose --host=${host} --port=${port} ${proxy} ${ssl} 2>&1 |\
 stdbuf -i0 -o0 -e0 grep -Ev '(building modules|\[emitted\])' |\
 stdbuf -i0 -o0 -e0 uncolor | \
 stdbuf -i0 -o0 -e0 tee ${root}/log 2>&1 | \
