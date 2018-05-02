@@ -6,7 +6,7 @@ import (
 
 	"golang.org/x/crypto/bcrypt"
 
-	"github.com/AdminId20/go-cfg"
+	"github.com/davidwalter0/go-cfg"
 )
 
 // App vars for flags or environment setup
