@@ -3,9 +3,14 @@
 export DOMAIN=example.com
 export GO_SERVICE_PORT=12345
 export ANGULAR_UI_PORT=8888
+
 export ADMIN_PASSWORD=..password..
+
 export GOOGLE_CLIENT_ID=...client-id....apps.googleusercontent.com
 export GOOGLE_CLIENT_SECRET=..secret..
+
+export GITHUB_CLIENT_ID=..abc123...
+export GITHUB_CLIENT_SECRET=...def456...
 
 export ADMIN_UID_1=admin1@${DOMAIN}
 export ADMIN_UID_2=admin2@${DOMAIN}

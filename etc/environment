@@ -42,7 +42,7 @@ fi
 . etc/environment.config.template.all
 . etc/environment.admins.config.template.all
 
-if [[ ${DOMAIN:-} == "example.com" ]] ; then
+if [[ "${DOMAIN}" == "example.com" ]] ; then
     cat <<EOF
 
 ########################################################################

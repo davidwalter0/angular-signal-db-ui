@@ -22,9 +22,9 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/satori/go.uuid"
 
-	"github.com/AdminId20/go-cfg"
-	"github.com/AdminId20/go-signalstor"
-	"github.com/AdminId20/transform"
+	"github.com/davidwalter0/go-cfg"
+	"github.com/davidwalter0/go-signalstor"
+	"github.com/davidwalter0/transform"
 	yaml "gopkg.in/yaml.v2"
 )
 

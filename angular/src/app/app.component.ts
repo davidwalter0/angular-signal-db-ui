@@ -108,7 +108,10 @@ export class AppComponent {
     if (this.oauthService.hasValidIdToken()) {
       let claim = this.claim();
       if (claim) {
-        let message = `Logged in as ${claim.name}`;
+        let message = 'Logged in but name not found';
+        if (claim.name) {
+          message = `Logged in as ${claim.name}`;
+        }
         this.openSnackBar(message, "Login");
         return true;
       }

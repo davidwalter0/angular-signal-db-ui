@@ -36,6 +36,9 @@ make
 - create certificates and setup your browser for them if they are self
   signed
 - get client id and secrets for oauth backend services
+  - Google
+  - Github
+  - ...
 - set PROJECT_EXT
 - copy etc/environment.config.template.example to etc/environment.config.template.${PROJECT_EXT}
 - edit / update etc/environment.config.template.${PROJECT_EXT}
