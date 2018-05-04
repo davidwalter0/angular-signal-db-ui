@@ -44,6 +44,7 @@ export class AppComponent {
   logout() {
     this.router.navigate(['/home']);
     this.history = [];
+
     this.oauthService.logOut();
     this.openSnackBar("Logout Complete!", "Logout");
   }
@@ -109,8 +110,8 @@ export class AppComponent {
       let claim = this.claim();
       if (claim) {
         let message = 'Logged in but name not found';
-        if (claim.name) {
-          message = `Logged in as ${claim.name}`;
+        if (claim['name']) {
+          message = `Logged in as ${claim['name']}`;
         }
         this.openSnackBar(message, "Login");
         return true;

@@ -16,10 +16,3 @@ if [[ ! ${APP_HOST:-} || ! ${APP_CERT_NAME:-} || ! ${APP_PORT:-} || ! ${APP_KEY:
    usage
    exit 1
 fi
-
-
-if [[ ! "${AdminPasswordHash:-}" ]]; then
-    AdminPasswordHash=$(go run dex/mkpasswd.go -password=${ADMIN_PASSWORD})
-fi
-export AdminPasswordHash=${AdminPasswordHash}
-

@@ -5,7 +5,7 @@
 
 <a mat-fab
    color="primary"
-   *ngIf="debug_mode && isAdmin && !path('/debug')"
+   *ngIf="debug_mode && !path('/debug')"
    class="left-over debug"
    (click)="push('/debug')">
   <mat-icon>
@@ -14,7 +14,7 @@
 </a>
 <a mat-fab
    color="primary"
-   *ngIf="debug_mode && isAdmin && path('/debug')"
+   *ngIf="debug_mode && path('/debug')"
    class="left-over debug"
    (click)="pop()">
   <mat-icon>
@@ -118,7 +118,7 @@
 <hr>
 <router-outlet style="width: 90%; margin-left: 10px;"></router-outlet>
 <hr>
-<mat-card *ngIf="debug" class="mat-elevation-z15">
+<mat-card *ngIf="debug_mode" class="mat-elevation-z15">
   <mat-card-content>
     <br>
     config: <pre><code>{{ cfg }}</code></pre>

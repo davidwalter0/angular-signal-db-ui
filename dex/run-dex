@@ -49,41 +49,31 @@ frontend:
 web:
   allowedOrigins: ['*']
   https: ${DOMAIN}:5556
-  tlsCert:     /etc/certs/${DOMAIN}/server.crt
-  tlsKey:      /etc/certs/${DOMAIN}/server.key
+  tlsCert:     /etc/certs/${DOMAIN}/${DOMAIN}.crt
+  tlsKey:      /etc/certs/${DOMAIN}/${DOMAIN}.key
   tlsClientCA: /etc/certs/${DOMAIN}/ca.crt
 
 grpc:
  addr: ${DOMAIN}:5557
- tlsCert:     /etc/certs/${DOMAIN}/server.crt
- tlsKey:      /etc/certs/${DOMAIN}/server.key
+ tlsCert:     /etc/certs/${DOMAIN}/${DOMAIN}.crt
+ tlsKey:      /etc/certs/${DOMAIN}/${DOMAIN}.key
  tlsClientCA: /etc/certs/${DOMAIN}/ca.crt
 
-# Uncomment this block to enable configuration for the expiration time durations.
+# Uncomment this block to enable configuration
+# for the expiration time durations.
+
 expiry:
   signingKeys: "6h"
   idTokens: "24h"
 
-# Uncomment this block to control which response types dex supports. For example
-# the following response types enable the implicit flow for web-only clients.
+# Uncomment this block to control which response
+# types dex supports. For example the following
+# response types enable the implicit flow for 
+# web-only clients.
+
 # Defaults to ["code"], the code flow.
 oauth2:
   responseTypes: ['id_token', 'token', 'code']
-
-# Instead of reading from an external storage, use this list of clients.
-#
-# If this option isn't chosen clients may be added through the gRPC API.
-staticClients:
-- id: ${DEX_CLIENT_ID}
-  redirectURIs: 
-  - '${ISSUER_URI}/callback'
-  - 'https://${DOMAIN}:5555/callback'
-  - 'https://${DOMAIN}:4200/home'
-  - 'https://${DOMAIN}:8888/home'
-  - 'https://${DOMAIN}:4200'
-  - 'https://${DOMAIN}:8888'
-  name: 'Angular ${DEX_CLIENT_ID}'
-  secret: ZXhhbXBsZS1hcHAtc2VjcmV0
 
 connectors:
 - type: mockCallback
@@ -134,6 +124,21 @@ connectors:
     #   - red-team
     #   - blue-team
 
+# Instead of reading from an external storage, use this list of clients.
+#
+# If this option isn't chosen clients may be added through the gRPC API.
+staticClients:
+- id: "${DEX_CLIENT_ID}"
+  redirectURIs: 
+  - '${ISSUER_URI}/callback'
+  - 'https://${DOMAIN}:5555/callback'
+  - 'https://${DOMAIN}:4200/home'
+  - 'https://${DOMAIN}:8888/home'
+  - 'https://${DOMAIN}:4200'
+  - 'https://${DOMAIN}:8888'
+  name: 'Angular ${DEX_CLIENT_ID}'
+  secret: "${StaticFlowSecret}"
+
 # Let dex keep a list of passwords which can be used to login to dex.
 enablePasswordDB: true
 
@@ -143,28 +148,24 @@ enablePasswordDB: true
 # If this option isn't chosen users may be added through the gRPC API.
 
 staticPasswords:
-- email: "${ADMIN_UID_1}@${DOMAIN}"
+- email: "${ADMIN_UID_1}"
   hash: "${AdminPasswordHash}"
   username: "${ADMIN_UID_1}"
   userID: "e966e278-d584-4def-bce5-3402c1b3929c"
-
-- email: "${ADMIN_UID_2}@${DOMAIN}"
+- email: "${ADMIN_UID_2}"
   hash: "${AdminPasswordHash}"
   username: "${ADMIN_UID_2}"
   userID: "c3910054-4d10-11e8-a537-68f7284fe468"
-
-- email: "${ADMIN_UID_3}@${DOMAIN}"
+- email: "${ADMIN_UID_3}"
   # bcrypt hash of the string "password"
   hash: "${AdminPasswordHash}"
   username: "${ADMIN_UID_3}"
   userID: "08a8684b-db88-4b73-90a9-3cd1661f5466"
-
-- email: "${ADMIN_UID_4}@${DOMAIN}"
+- email: "${ADMIN_UID_4}"
   hash: "${AdminPasswordHash}"
   username: "${ADMIN_UID_4}"
   userID: "c4867bef-2051-452b-a3d7-f533e334bff5"
-
-- email: "${ADMIN_UID_5}@${DOMAIN}"
+- email: "${ADMIN_UID_5}"
   hash: "${AdminPasswordHash}"
   username: "${ADMIN_UID_5}"
   userID: "bb0c1ea0-4d10-11e8-b3ac-68f7284fe468"
@@ -188,7 +189,9 @@ cmd="example-app \
   --tls-key /etc/certs/${DOMAIN}/${DOMAIN}.key \
   --tls-cert /etc/certs/${DOMAIN}/${DOMAIN}.crt \
   --issuer-root-ca /etc/certs/${DOMAIN}/ca.crt \
-  --client-id ${DEX_CLIENT_ID}"
+  --client-id ${DEX_CLIENT_ID} \
+  --client-secret=${StaticFlowSecret}" \
+
 
 
 echo "${cmd}"

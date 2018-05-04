@@ -3,8 +3,14 @@
 export DOMAIN=example.com
 export GO_SERVICE_PORT=12345
 export ANGULAR_UI_PORT=8888
+export StaticFlowSecret=ZXhhbXBsZS1hcHAtc2VjcmV0
 
 export ADMIN_PASSWORD=..password..
+
+if [[ ! "${AdminPasswordHash:-}" ]]; then
+    AdminPasswordHash=$(go run dex/mkpasswd.go -password=${ADMIN_PASSWORD})
+fi
+export AdminPasswordHash=${AdminPasswordHash}
 
 export GOOGLE_CLIENT_ID=...client-id....apps.googleusercontent.com
 export GOOGLE_CLIENT_SECRET=..secret..

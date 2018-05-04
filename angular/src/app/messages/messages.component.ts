@@ -30,6 +30,7 @@ export class MessagesComponent implements OnInit {
   public readable_date: boolean = true;
   public contact_name: boolean = true;
   public address: boolean = true;
+  public searchText: string;
 
   public constructor(private http: Http,
     private router: Router,
